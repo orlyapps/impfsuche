@@ -44,9 +44,11 @@ class FetchImpfsuche extends Command
         $result = strpos($html, $city);
         if ($result) {
             Mail::to('strauss@orlyapps.de')->send(new NotificationMail($city));
+            \Http::post(env('SLACK_HOOK'), ['text' => "{$city} mit freien Terminen <https://www.impfportal-niedersachsen.de/portal/#/appointment/public>"]);
         } else {
             echo "Kein Impftermin";
         }
+
         return 0;
     }
 }
