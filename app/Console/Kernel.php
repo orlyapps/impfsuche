@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('fetch "Bad Zwischenahn"')->everyFiveMinutes();
+        $schedule->command('fetch "Bad Zwischenahn"')->everyMinute();
     }
 
     /**
